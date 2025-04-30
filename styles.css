@@ -1,0 +1,83 @@
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(#fbeff5, #ffe6f0);
+      overflow: hidden;
+      text-align: center;
+      color: #d63384;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-top: 2em;
+    }
+
+    #timer {
+      font-size: 2em;
+      margin-top: 1em;
+    }
+
+    .note {
+      font-size: 1.2em;
+      margin: 2em;
+      color: #8e44ad;
+    }
+
+    .petal {
+      position: fixed;
+      width: 15px;
+      height: 15px;
+      background: pink;
+      border-radius: 50%;
+      opacity: 0.7;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    #secret-page {
+      position: fixed;
+      bottom: 5%;
+      left: 10%;
+      width: 80%;
+      background: white;
+      border: 2px solid #ff69b4;
+      border-radius: 20px;
+      box-shadow: 0 0 20px #ffb6c1;
+      padding: 2em;
+      z-index: 10;
+    }
+
+    #hidden-message {
+      display: none;
+      margin-top: 1em;
+      font-size: 1.1em;
+      color: #e84393;
+    }
+
+    button {
+      background-color: #ff85c1;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 12px;
+      color: white;
+      font-size: 1em;
+      cursor: pointer;
+      margin-top: 1em;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ff5fa0;
+    }
+  

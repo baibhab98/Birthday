@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Happy Birthday Shreya!</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(#fbeff5, #ffe6f0);
+      overflow: hidden;
+      text-align: center;
+      color: #d63384;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-top: 2em;
+    }
+
+    #timer {
+      font-size: 2em;
+      margin-top: 1em;
+    }
+
+    .note {
+      font-size: 1.2em;
+      margin: 2em;
+      color: #8e44ad;
+    }
+
+    .petal {
+      position: fixed;
+      width: 15px;
+      height: 15px;
+      background: pink;
+      border-radius: 50%;
+      opacity: 0.7;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    #secret-page {
+      position: fixed;
+      bottom: 5%;
+      left: 10%;
+      width: 80%;
+      background: white;
+      border: 2px solid #ff69b4;
+      border-radius: 20px;
+      box-shadow: 0 0 20px #ffb6c1;
+      padding: 2em;
+      z-index: 10;
+    }
+
+    #hidden-message {
+      display: none;
+      margin-top: 1em;
+      font-size: 1.1em;
+      color: #e84393;
+    }
+
+    button {
+      background-color: #ff85c1;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 12px;
+      color: white;
+      font-size: 1em;
+      cursor: pointer;
+      margin-top: 1em;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ff5fa0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Happy Birthday, Shreya!</h1>
+  <div id="timer"></div>
+  <img src="shreya_photo.jpg" alt="Shreya" style="width: 200px; border-radius: 20px; margin-top: 1em; box-shadow: 0 0 15px #ff85c1;">
+  <div class="note">
+    Wishing you a day filled with love, laughter, and everything that makes you smile.<br>
+    You are cherished more than words can express.
+  </div>
+
+  <div id="secret-page">
+    <h2>Your Special Page</h2>
+    <p>Click the button below to reveal your secret message!</p>
+    <button onclick="showSecret()">Show Message</button>
+    <div id="hidden-message">
+      Hey Shreya, this is your secret message! You're amazing and deserve all the happiness in the world. Keep being your beautiful, brilliant self!
+    </div>
+  </div>
+
+  <script>
+    // Countdown Timer
+    const targetDate = new Date("May 1, 2025 00:00:00").getTime();
+    const timer = document.getElementById("timer");
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) {
+        timer.innerHTML = "It's your special day!";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((distance / (1000 * 60)) % 60);
+      const seconds = Math.floor((distance / 1000) % 60);
+
+      timer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s until the celebration!`;
+    }, 1000);
+
+    // Falling Petals
+    function createPetal() {
+      const petal = document.createElement("div");
+      petal.classList.add("petal");
+      petal.style.left = Math.random() * 100 + "vw";
+      petal.style.animationDuration = (3 + Math.random() * 5) + "s";
+      document.body.appendChild(petal);
+      setTimeout(() => petal.remove(), 8000);
+    }
+
+    setInterval(createPetal, 200);
+
+    // Show secret message
+    function showSecret() {
+      document.getElementById("hidden-message").style.display = "block";
+    }
+  </script>
+</body>
+</html>
